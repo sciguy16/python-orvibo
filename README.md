@@ -5,15 +5,16 @@ Control Orvibo devices with Python 3. Currently supports the S20 WiFi Smart Swit
 ## Usage
 
 ```python
-from orvibo.s20 import S20, discover, setup
+from orvibo.s20 import S20, discover, start, stop
 
-setup() # To bind to default interface
-# setup('192.0.2.1') # To bind to specific interface
+start() # To bind to default interface
+# start('192.0.2.1') # To bind to specific interface
 hosts = discover() # Discover devices on your local network.
 s20 = S20("x.x.x.x") # Use a discovered host, or supply a known host.
 print(s20.on) # Current state (True = ON, False = OFF).
 s20.on = True # Turn it on.
 s20.on = False # Turn it off.
+stop()
 ```
 
 ## Contributions

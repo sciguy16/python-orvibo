@@ -47,7 +47,7 @@ def _listen():
         _BUFFER[addr[0]] = data
 
 
-def setup(addr = ''):
+def start(addr = ''):
     """ Set up module.
 
     Open a UDP socket, and listen in a thread.
