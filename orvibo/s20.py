@@ -54,8 +54,12 @@ def setup(addr = ''):
     """
     _SOCKET.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
     _SOCKET.bind((addr, PORT))
-    udp = threading.Thread(target=_listen, daemon=True)
+    udp = threading.Thread(target=_listen)
     udp.start()
+
+def stop():
+    """ Close the socket"""
+    _SOCKET.close()
 
 
 def _device_time(tab):
