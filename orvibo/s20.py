@@ -47,13 +47,13 @@ def _listen():
         _BUFFER[addr[0]] = data
 
 
-def _setup():
+def init(addr = ''):
     """ Set up module.
 
     Open a UDP socket, and listen in a thread.
     """
     _SOCKET.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
-    _SOCKET.bind(('', PORT))
+    _SOCKET.bind((addr, PORT))
     udp = threading.Thread(target=_listen, daemon=True)
     udp.start()
 
@@ -311,4 +311,3 @@ class S20(object):
         self._control(OFF)
 
 
-_setup()
